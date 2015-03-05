@@ -7,10 +7,7 @@ import com.example.helloworld.core.Template;
 import com.example.helloworld.core.User;
 import com.example.helloworld.db.PersonDAO;
 import com.example.helloworld.health.TemplateHealthCheck;
-import com.example.helloworld.resources.HelloWorldResource;
-import com.example.helloworld.resources.PeopleResource;
-import com.example.helloworld.resources.PersonResource;
-import com.example.helloworld.resources.ProtectedResource;
+import com.example.helloworld.resources.Fibonacii;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.auth.basic.BasicAuthProvider;
@@ -50,18 +47,9 @@ public class HelloWorldService extends Service<HelloWorldConfiguration> {
     @Override
     public void run(HelloWorldConfiguration configuration,
                     Environment environment) throws ClassNotFoundException {
-        final PersonDAO dao = new PersonDAO(hibernateBundle.getSessionFactory());
 
         environment.addProvider(new BasicAuthProvider<User>(new ExampleAuthenticator(),
                                                             "SUPER SECRET STUFF"));
-
-        final Template template = configuration.buildTemplate();
-
-        environment.addHealthCheck(new TemplateHealthCheck(template));
-        environment.addResource(new HelloWorldResource(template));
-        environment.addResource(new ProtectedResource());
-
-        environment.addResource(new PeopleResource(dao));
-        environment.addResource(new PersonResource(dao));
+        environment.addResource(new Fibonacii());
     }
 }
