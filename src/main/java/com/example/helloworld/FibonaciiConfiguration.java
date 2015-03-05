@@ -8,14 +8,12 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-public class HelloWorldConfiguration extends Configuration {
-    
-    
+public class FibonaciiConfiguration extends Configuration {
+        
     @Valid
     @NotNull
     @JsonProperty("database")
     private DatabaseConfiguration databaseConfiguration = new DatabaseConfiguration();
-
 
 
     public DatabaseConfiguration getDatabaseConfiguration() {

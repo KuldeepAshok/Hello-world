@@ -10,28 +10,23 @@ import com.yammer.dropwizard.db.DatabaseConfiguration;
 import com.yammer.dropwizard.hibernate.HibernateBundle;
 import com.yammer.dropwizard.migrations.MigrationsBundle;
 
-public class HelloWorldService extends Service<HelloWorldConfiguration> {
+public class FibonaciiService extends Service<FibonaciiConfiguration> {
     public static void main(String[] args) throws Exception {
-        new HelloWorldService().run(args);
+        new FibonaciiService().run(args);
     }
-
-    
-
     @Override
-    public void initialize(Bootstrap<HelloWorldConfiguration> bootstrap) {
+    public void initialize(Bootstrap<FibonaciiConfiguration> bootstrap) {
         bootstrap.setName("hello-world");
         bootstrap.addBundle(new AssetsBundle());
-        bootstrap.addBundle(new MigrationsBundle<HelloWorldConfiguration>() {
+        bootstrap.addBundle(new MigrationsBundle<FibonaciiConfiguration>() {
             @Override
-            public DatabaseConfiguration getDatabaseConfiguration(HelloWorldConfiguration configuration) {
+            public DatabaseConfiguration getDatabaseConfiguration(FibonaciiConfiguration configuration) {
                 return configuration.getDatabaseConfiguration();
             }
-        });
-        
+        });        
     }
-
     @Override
-    public void run(HelloWorldConfiguration configuration,
+    public void run(FibonaciiConfiguration configuration,
                     Environment environment) throws ClassNotFoundException {
 
         environment.addResource(new Fibonacii());
