@@ -1,4 +1,4 @@
-package com.example.helloworld.core;
+package com.example.Fibonacii.core;
 public class CalculateFib {
 
     public static int Fib(int n)

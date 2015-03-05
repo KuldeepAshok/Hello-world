@@ -1,6 +1,6 @@
-package com.example.helloworld;
+package com.example.Fibonacii;
 
-import com.example.helloworld.resources.Fibonacii;
+import com.example.Fibonacii.resources.Fibonacii;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.assets.AssetsBundle;
 import com.yammer.dropwizard.auth.basic.BasicAuthProvider;

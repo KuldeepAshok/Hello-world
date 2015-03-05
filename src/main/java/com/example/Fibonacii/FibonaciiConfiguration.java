@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package com.example.Fibonacii;
 
 import com.yammer.dropwizard.config.Configuration;
 import com.yammer.dropwizard.db.DatabaseConfiguration;

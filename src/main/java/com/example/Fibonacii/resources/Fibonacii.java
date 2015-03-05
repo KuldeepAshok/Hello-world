@@ -1,7 +1,7 @@
-package com.example.helloworld.resources;
+package com.example.Fibonacii.resources;
 
 import com.yammer.dropwizard.auth.Auth;
-import com.example.helloworld.core.CalculateFib;
+import com.example.Fibonacii.core.CalculateFib;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
