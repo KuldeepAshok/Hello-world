@@ -1,6 +1,5 @@
 package com.example.helloworld.resources;
 
-import com.example.helloworld.core.User;
 import com.yammer.dropwizard.auth.Auth;
 import com.example.helloworld.core.CalculateFib;
 import javax.ws.rs.GET;
