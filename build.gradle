@@ -59,7 +59,7 @@ dependencies {
 task oneJar(type: OneJar) {
     mainClass = mainClassName
 }
-task stage(dependsOn: ['clean', 'build','installApp'])
+task stage(dependsOn: ['clean', 'jar'])
 // Configure the run task to start the Dropwizard service
 run {
     args 'server', './src/dist/config/helloworld.yml'
@@ -67,10 +67,21 @@ run {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.4'
+    gradleVersion = '3.0'
 }
 
 artifacts {
     oneJar
 }
 
+
+jar {
+    manifest {
+        attributes  'Title': 'dropwizard-gradle-master', 'Version': 1.0,'Main-Class':  mainClassName
+    }
+    archiveName 'dropwizard-gradle-master'
+    doFirst {
+        from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    }
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+}
