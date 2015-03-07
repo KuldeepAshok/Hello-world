@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# A web service to generate nth Fibonacii number
+# A complete nth Fibonacii number generation web api using Gradle+ Dropwizard +Heroku Deployment specifications
 =======
 # Dropwizard + Gradle = &hearts; [![Build Status](https://secure.travis-ci.org/smarchive/dropwizard-gradle.png)](http://travis-ci.org/smarchive/dropwizard-gradle)
 
