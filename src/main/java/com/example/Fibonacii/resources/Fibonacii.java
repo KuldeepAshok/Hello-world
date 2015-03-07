@@ -18,6 +18,8 @@ public class Fibonacii {
     public Long getFibNumber(@PathParam("fib") Integer n) throws Exception {
     	//System.out.println(CalculateFib.Fib(n));
         //FibonaciiResultSet set ;
+        if(n<0 && n>92)
+            return Long.valueOf(-1);
         return CalculateFibIterative.Fib(n);
     }
 }
