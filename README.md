@@ -20,6 +20,21 @@ To create a JAR with all dependencies just run `./gradlew stage`. The resulting 
 
 You can simply run the application with `java -jar build/libs/dropwizard-gradle-master server src/dist/config/helloworld.yml`.
 
+If you want ot deply it to Heroku, follow below steps
+: git clone git@github.com:KuldeepAshok/Hello-world.git
+: heroku login
+loginID:password
+
+:cd hello-world
+
+:heroku create
+:git push heroku master
+:heroku ps:scale web=1
+:heroku open
+
+It will provide you a link which should be appended with /kuldeep/n where n is number for which nth fibonacii number should be calculated
+Ex: For me provided linl was : https://powerful-taiga-2449.herokuapp.com/ and final link was https://powerful-taiga-2449.herokuapp.com/kuldeep/1000000
+
 ## Gradle Application Plugin
 
 An alternative to creating a fat JAR is using the [Gradle Application Plugin](http://www.gradle.org/docs/current/userguide/application_plugin.html).
