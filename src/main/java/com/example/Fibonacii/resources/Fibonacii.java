@@ -1,5 +1,7 @@
 package com.example.Fibonacii.resources;
 
+import com.example.Fibonacii.core.CalculateFibIterative;
+import com.example.Fibonacii.core.FibonaciiResultSet;
 import com.yammer.dropwizard.auth.Auth;
 import com.example.Fibonacii.core.CalculateFib;
 import javax.ws.rs.GET;
@@ -13,9 +15,9 @@ public class Fibonacii {
     @GET
     @Path("{fib}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Integer getFibNumber(@PathParam("fib") Integer n)
-    {   
+    public Long getFibNumber(@PathParam("fib") Integer n) throws Exception {
     	//System.out.println(CalculateFib.Fib(n));
-        return CalculateFib.Fib(n);
+        //FibonaciiResultSet set ;
+        return CalculateFibIterative.Fib(n);
     }
 }
