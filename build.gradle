@@ -16,13 +16,26 @@ mainClassName = 'com.example.Fibonacii.FibonaciiService'
 buildscript {
     repositories {
         mavenCentral()
+        maven { url 'http://dl.bintray.com/vermeulen-mp/gradle-plugins' }
     }
 
     dependencies {
         classpath 'com.github.rholder:gradle-one-jar:1.0.3'
+        classpath 'com.wiredforcode:gradle-heroku-plugin:1.0.0'
     }
 }
+apply plugin: 'heroku'
 
+heroku {
+    //get this from heroku
+    apiKey = '9babde65-9a71-4c24-aa80-32dd424b1bdc'
+
+    //set this on first run if you don't want a generated name
+    //appName = 'some-unique-app-name'
+
+    //set this if you are not happy with the default gradlew buildpack
+    //buildpack = 'http://somebuildpack
+}
 // Set our project variables
 project.ext {
     dropwizardVersion = '0.6.2'
@@ -46,7 +59,7 @@ dependencies {
 task oneJar(type: OneJar) {
     mainClass = mainClassName
 }
-
+task stage(dependsOn: ['clean', 'build','installApp'])
 // Configure the run task to start the Dropwizard service
 run {
     args 'server', './src/dist/config/helloworld.yml'
@@ -60,3 +73,4 @@ task wrapper(type: Wrapper) {
 artifacts {
     oneJar
 }
+
